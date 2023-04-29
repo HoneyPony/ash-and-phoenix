@@ -42,6 +42,15 @@ hue_variation_max = 0.03
 [node name="Letter" parent="." instance=ExtResource("1_ce206")]
 scale = Vector2(0.3, 0.3)
 
+[node name="Letter2" parent="." instance=ExtResource("1_ce206")]
+scale = Vector2(0.3, 0.3)
+
+[node name="Letter3" parent="." instance=ExtResource("1_ce206")]
+scale = Vector2(0.3, 0.3)
+
+[node name="Letter4" parent="." instance=ExtResource("1_ce206")]
+scale = Vector2(0.3, 0.3)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Bubbles" type="GPUParticles2D" parent="."]

@@ -9,12 +9,23 @@ var is_completed = false
 func _ready():
 	text_display.text = "[center]" + text + "[/center]"
 	
-	position.y = 400 + 80
+	position.y = 400 + 100
+	position.x = randf_range(-40, 40)
 	
 func _process(delta):
 	position.y -= delta * 40
-	if position.y <= 400:
-		add_to_group("Letter")
+	
+	if is_completed:
+		if abs(position.x) < 1:
+			position.x = 1
+		position.x *= 1.02
+		
+		if abs(position.x) > 2000:
+			queue_free()
+	else:
+		# DO NOT add back to Letter group after is_completed.
+		if position.y <= 460:
+			add_to_group("Letter")
 
 func render_text(correct: int, some_wrong: bool):
 	text_display.text = "[center][color=green]"
