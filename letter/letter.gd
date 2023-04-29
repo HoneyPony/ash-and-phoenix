@@ -50,6 +50,9 @@ func _process(delta):
 		velocity_x += sign(velocity_x) * 600 * delta
 		position.x += velocity_x * delta
 		
+		if abs(position.x) > 270:
+			remove_from_group("BlockingLetter")
+		
 		if abs(position.x) > 2000:
 			queue_free()
 	else:

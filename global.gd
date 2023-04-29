@@ -166,10 +166,7 @@ var game_dataaa = [
 	WORD("found", 1.2, 0, 60),
 	WORD("some", 1.3, 120, 60),
 	WORD("success!", 1.4, 240, 60),
-	
-		]
-	
-var game_data = [
+
 	WAIT(),
 	WORD("there's", 0, -210),
 	WORD("a", 0.1, -80),
@@ -180,7 +177,34 @@ var game_data = [
 	WORD("year", 0.6, 80, 100),
 	WORD("where", 1.6, -80, 100),
 	WORD("i'm", 1.7, 50, 100),
-	WORD("performing", 1.8, 180, 100)
+	WORD("performing", 1.8, 180, 100),
+	
+	WORD("definitely", 4.8, -240, 100),
+	WORD("looking", 5.0, -120, 100),
+	WORD("forward", 5.2, 0, 100),
+	WORD("to", 5.4, 120, 100),
+	WORD("that", 5.6, 240, 100),
+		
+		]
+	
+var game_data = [
+	WAIT(),
+	WORD("i'm", 0, -252),
+	WORD("hoping", 0.1, -168),
+	WORD("to", 0.2, -84), # originally "i", but that makes typing weird
+	WORD("hear", 0.3, 0),
+	WORD("back", 0.4, 84),
+	WORD("from", 0.5, 168),
+	WORD("you!", 0.6, 252),
+	
+	WAIT(),
+	WORD("ash", 0, 0),
+	
+	WAIT(),
+	CHANGE_PHOENIX(),
+	WORD("dear", 0, -100),
+	WORD("ash", 0.3, 40),
+	
 	#[0, 0, -210, "i"],
 	#[0, 1, -70, "don't"],
 	#[0, 2, 70, "recall"],
@@ -219,7 +243,8 @@ func check_next_entry():
 		return true
 	elif is_instance_of(next_entry, WaitForWords):
 		# Just wait for all the words to disappear.
-		var ready = get_tree().get_nodes_in_group("Letter").is_empty()
+		# Use BlockingLetter because Letter is not added at spawn time.
+		var ready = get_tree().get_nodes_in_group("BlockingLetter").is_empty()
 		if ready:
 			# Reset timer on wait
 			timer = 0

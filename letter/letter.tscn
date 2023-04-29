@@ -354,7 +354,7 @@ _data = {
 "RESET": SubResource("Animation_mycyy")
 }
 
-[node name="Letter" type="Node2D"]
+[node name="Letter" type="Node2D" groups=["BlockingLetter"]]
 script = ExtResource("1_qj84h")
 letter2_frames = SubResource("SpriteFrames_vodgf")
 letter2_font = ExtResource("33_e0k5j")
