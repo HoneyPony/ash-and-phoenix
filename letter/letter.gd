@@ -7,12 +7,21 @@ var text = "preposterous"
 func _ready():
 	text_display.text = "[center]" + text + "[/center]"
 
-func render_text(correct: int):
+func render_text(correct: int, some_wrong: bool):
 	text_display.text = "[center][color=green]"
 	for i in range(0, correct):
 		text_display.text += text[i]
 	text_display.text += "[/color]"
-	for i in range(correct, text.length()):
+	
+	var no_status_index = correct
+	
+	if some_wrong:
+		var index = correct
+		if index < text.length():
+			text_display.text += "[color=red]" + text[index] + "[/color]"
+			no_status_index += 1
+			
+	for i in range(no_status_index, text.length()):
 		text_display.text += text[i]
 	text_display.text += "[/center]"
 	
@@ -42,16 +51,14 @@ func measure_input(input: String):
 		# Return a total mismatch
 		return [GS.max_mistakes + 1, 0, false]
 		
-	var mistakes = 0
 	var	input_idx = 1
 	for i in range(1, text.length()):
 		if input_idx >= input.length():
 			# Once we reach the input length, we are done.
-			return [mistakes, i, false]
+			return [0, i, false]
 		
 		var next_char = text[i]
 		
-		print("initial compare: ", input[input_idx], " ", next_char)
 		if input[input_idx] == next_char:
 			# This input character matches! Increment the input_idx
 			# to move past it.
@@ -60,28 +67,28 @@ func measure_input(input: String):
 			# last character in the string -- then we are done, return true.
 			
 			input_idx += 1
-			if i == text.length():
-				return [mistakes, i, true]
 		else:
-			# If we don't immediately match, that's a mistake.
-			mistakes += 1
+			# Start counting mistakes.
+			# Once we reach max mistakes in all words, the GS will end our
+			# run.
 			
-			# Early exit condition
-			#if mistakes > GS.max_mistakes:
-			#	return [mistakes, i, false]
+			# However, if we encounter the correct letter without hitting too
+			# many mistakes, then we consider the word OK.
+			
+			var mistakes = 0
+			while input[input_idx] != next_char:
+				mistakes += 1
+				if mistakes > GS.max_mistakes:
+					return [mistakes, i, false]
 				
-			input_idx += 1 # Move past the mistaken character
-				
-			# Okay, now try to find the character in the input.
-			while input_idx < input.length():
-				if input[input_idx] == next_char:
-					input_idx += 1 # Move past the correct char
-					break
-				
-				input_idx += 1 # Increment must happen right before loop check
-				
-			if input_idx >= input.length():
-				return [mistakes, i, false]
+				input_idx += 1 # Move past next mistaken char
+				if input_idx >= input.length():
+					return [mistakes, i, false]
+					
+			# Ok, we made it here. That means we found the char before hitting
+			# too many mistakes. So, it's actually fine. Move past the correct
+			# char.
+			input_idx += 1
 		
-	# Hmm... idk
-	return [mistakes, text.length(), true]
+	# Got through every character. We're done.
+	return [0, text.length(), true]

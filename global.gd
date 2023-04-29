@@ -32,5 +32,5 @@ func _process(delta):
 		if measure[0] <= max_mistakes:
 			has_valid_letter = true
 		
-		letter.render_text(measure[1])
+			letter.render_text(measure[1], measure[0] > 0)
 	
