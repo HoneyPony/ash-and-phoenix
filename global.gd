@@ -53,7 +53,7 @@ func WAIT():
 
 
 # Stores the game data
-var game_data = [
+var game_dataaa = [
 	CHANGE_ASH(),
 	WORD("dear", 0, -70),
 	WORD("phoenix", 0.4, 70),
@@ -104,7 +104,7 @@ var game_data = [
 	WORD("this", 6.8, -70, 80),
 	WORD("ancient", 7.2, 70, 80),
 	WORD("paper", 7.6, 210, 80),
-	
+
 	
 	WAIT(),
 	WORD("it's", 0, -210),
@@ -120,7 +120,67 @@ var game_data = [
 	WORD("last", 1.6, -210, 120),
 	WORD("time", 2.0, -70, 120),
 	WORD("we", 2.4, 70, 120),
-	WORD("talked", 2.8, 210, 120)
+	WORD("talked", 2.8, 210, 120),
+	
+
+	WAIT(),
+	WORD("i", 0.0, -170),
+	WORD("would", 0.4, -30),
+	WORD("love", 0.8, 140),
+	WORD("to", 1.2, -210, 60),
+	WORD("hear", 1.6, -70, 60),
+	WORD("all", 2.0, 70, 60),
+	WORD("about", 2.4, 210, 60),
+	WORD("what", 2.8, -210, 120),
+	WORD("you're", 3.2, -70, 120),
+	WORD("up", 3.6, 70, 120),
+	WORD("to", 4.0, 210, 120),
+	WORD("these", 4.4, 0, 180),
+	WORD("days", 4.8, 140, 180),
+	
+	WAIT(),
+	WORD("i", 0, -140),
+	WORD("myself", 0.2, 0),
+	WORD("decided", 0.4, 140),
+	WORD("to", 0.8, -210, 60),
+	WORD("drop", 1.2, -70, 60),
+	WORD("everything", 1.4, 180, 60),
+	
+	WORD("a", 3.4, -210, 60),
+	WORD("few", 3.8, -70, 60),
+	WORD("years", 4.2, 70, 60),
+	WORD("ago", 4.6, 210, 60),
+	
+	WORD("and", 6.4, -210, 60),
+	WORD("pursue", 6.8, -70, 60),
+	WORD("my", 7.2, 70, 60),
+	WORD("dreams", 7.6, 210, 60),
+	
+	WORD("in", 8.8, -30, 120),
+	WORD("music", 9.2, 100, 120),
+
+	WAIT(),
+	WORD("and", 0, 0),
+	WORD("i", 1, -240, 60),
+	WORD("have", 1.1, -120, 60),
+	WORD("found", 1.2, 0, 60),
+	WORD("some", 1.3, 120, 60),
+	WORD("success!", 1.4, 240, 60),
+	
+		]
+	
+var game_data = [
+	WAIT(),
+	WORD("there's", 0, -210),
+	WORD("a", 0.1, -80),
+	WORD("really", 0.2, 50),
+	WORD("cool", 0.3, 180),
+	WORD("concert", 0.4, -180, 100),
+	WORD("next", 0.5, -50, 100),
+	WORD("year", 0.6, 80, 100),
+	WORD("where", 1.6, -80, 100),
+	WORD("i'm", 1.7, 50, 100),
+	WORD("performing", 1.8, 180, 100)
 	#[0, 0, -210, "i"],
 	#[0, 1, -70, "don't"],
 	#[0, 2, 70, "recall"],
