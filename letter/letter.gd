@@ -10,10 +10,10 @@ func _ready():
 	text_display.text = "[center]" + text + "[/center]"
 	
 	position.y = 400 + 100
-	position.x = randf_range(-40, 40)
+	#position.x = randf_range(-40, 40)
 	
 func _process(delta):
-	position.y -= delta * 40
+	position.y -= delta * 80
 	
 	if is_completed:
 		if abs(position.x) < 1:

@@ -255,6 +255,7 @@ scale = Vector2(0.5725, 0.5725)
 texture = ExtResource("1_aee6o")
 
 [node name="LetterDisplay" type="Node2D" parent="."]
+scale = Vector2(0.3, 0.3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LetterDisplay"]
 position = Vector2(-3, -80)

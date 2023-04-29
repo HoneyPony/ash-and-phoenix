@@ -1,5 +1,7 @@
 extends Node
 
+var Letter = preload("res://letter/letter.tscn")
+
 # The next inputted string. Once you make N mistakes, the string is reset.
 # Otherwise, we try to match it to existing Letter instances.
 var next_input = ""
@@ -7,14 +9,46 @@ var next_input = ""
 # The maximum number of allowed mistakes per word
 var max_mistakes = 3
 
+# Used to see if there are new letters to spawn in
+var timer = 0.0
+var game_data_index = 0
+
+# How long each "tick" of the game_data first column corresponds to, in seconds
+var GAME_TIMER_FACTOR = 1
+
+# Stores the game data
+var game_data = [
+	[0, -210, "hello"],
+	[1, -70, "ludum"],
+	[2, 70, "dare"],
+	[3, 210, "game"]
+]
+
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		var key_event = event as InputEventKey
 		var key_typed = PackedByteArray([key_event.unicode]).get_string_from_utf8()
 		
 		next_input += key_typed
+		
+func check_game_data(delta):
+	timer += delta
+	
+	if game_data_index >= game_data.size():
+		return
+	
+	var next_entry = game_data[game_data_index]
+	if next_entry[0] * GAME_TIMER_FACTOR <= timer:
+		var letter = Letter.instantiate()
+		letter.text = next_entry[2]
+		letter.position.x = next_entry[1]
+		get_node("/root/Game").add_child(letter)
+		
+		game_data_index += 1
 
 func _process(delta):
+	check_game_data(delta)
+	
 	# Can't do anything with no text input
 	# TODO: Render letters with empty match...?
 	if next_input.is_empty():
