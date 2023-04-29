@@ -6,19 +6,35 @@ var text = "preposterous"
 
 var is_completed = false
 
+var velocity_x = 0.0
+var velocity_y = -300
+
 func _ready():
 	text_display.text = "[center]" + text + "[/center]"
 	
-	position.y = 400 + 100
+	#position.y = 400 + 100
+	
+	modulate.a = 0
 	#position.x = randf_range(-40, 40)
 	
 func _process(delta):
-	position.y -= delta * 80
+	position.y += delta * velocity_y
+	if position.y <= 500:
+		velocity_y += delta * 230 # decelerate
+		velocity_y = min(velocity_y, -40) # can't go below -40
+	
+		if position.y > -300 or is_completed:
+			modulate.a = min(modulate.a + delta, 1.0)
+		else:
+			modulate.a = max(modulate.a - delta, 0.0)
 	
 	if is_completed:
-		if abs(position.x) < 1:
-			position.x = 1
-		position.x *= 1.02
+		if abs(velocity_x) < 1:
+			velocity_x = sign(position.x)
+			if abs(position.x) < 1:
+				velocity_x = 1
+		velocity_x += sign(velocity_x) * 600 * delta
+		position.x += velocity_x * delta
 		
 		if abs(position.x) > 2000:
 			queue_free()
@@ -38,7 +54,7 @@ func render_text(correct: int, some_wrong: bool):
 	if some_wrong:
 		var index = correct
 		if index < text.length():
-			text_display.text += "[color=#800909]" + text[index] + "[/color]"
+			text_display.text += "[color=red]" + text[index] + "[/color]"
 			no_status_index += 1
 			
 	for i in range(no_status_index, text.length()):

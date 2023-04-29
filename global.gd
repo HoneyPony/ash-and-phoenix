@@ -18,10 +18,10 @@ var GAME_TIMER_FACTOR = 1
 
 # Stores the game data
 var game_data = [
-	[0, -210, "hello"],
-	[1, -70, "ludum"],
-	[2, 70, "dare"],
-	[3, 210, "game"]
+	[0,   0, -210, "hello"],
+	[0.2, 1, -70, "ludum"],
+	[0.4, 2, 70, "dare"],
+	[0.6, 3, 210, "game"]
 ]
 
 func _input(event):
@@ -31,20 +31,28 @@ func _input(event):
 		
 		next_input += key_typed
 		
-func check_game_data(delta):
-	timer += delta
-	
+func check_next_entry():
 	if game_data_index >= game_data.size():
-		return
+		return false
 	
 	var next_entry = game_data[game_data_index]
 	if next_entry[0] * GAME_TIMER_FACTOR <= timer:
 		var letter = Letter.instantiate()
-		letter.text = next_entry[2]
-		letter.position.x = next_entry[1]
+		letter.text = next_entry[3]
+		letter.position.x = next_entry[2]
+		letter.position.y = 500 + next_entry[1] * 40
 		get_node("/root/Game").add_child(letter)
 		
 		game_data_index += 1
+		return true
+	return false
+		
+func check_game_data(delta):
+	timer += delta
+	
+	# Spawn any entries
+	while check_next_entry():
+		pass
 
 func _process(delta):
 	check_game_data(delta)
