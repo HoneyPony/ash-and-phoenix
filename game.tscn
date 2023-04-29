@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://x5wn1mmjwih5"]
+[gd_scene load_steps=9 format=3 uid="uid://x5wn1mmjwih5"]
 
 [ext_resource type="Texture2D" uid="uid://csu3tuw1e0jx6" path="res://bg/circle.svg" id="2_1fqt5"]
+[ext_resource type="FontFile" uid="uid://b6pr3techvh6" path="res://fonts/handlee/Handlee-Regular.ttf" id="2_dr8wu"]
+[ext_resource type="Script" path="res://pause_menu.gd" id="3_1y667"]
+[ext_resource type="Script" path="res://volume_slider.gd" id="3_t42d7"]
 
 [sub_resource type="Curve" id="Curve_sw2kn"]
 _data = [Vector2(0, 0), 0.0, 4.86316, 0, 0, Vector2(0.112554, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.363636), -1.47, 0.0, 0, 0]
@@ -27,6 +30,10 @@ scale_curve = SubResource("CurveTexture_lnx3s")
 color = Color(0.607843, 0.533333, 1, 0.176471)
 hue_variation_min = -0.02
 hue_variation_max = 0.03
+
+[sub_resource type="Theme" id="Theme_l5w0c"]
+default_font = ExtResource("2_dr8wu")
+default_font_size = 30
 
 [node name="Game" type="Node2D"]
 
@@ -61,3 +68,134 @@ texture = ExtResource("2_1fqt5")
 lifetime = 60.0
 preprocess = 120.0
 visibility_rect = Rect2(-100, -1000, 200, 1000)
+
+[node name="Pause" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="PauseMenu" type="ColorRect" parent="Pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_l5w0c")
+color = Color(0, 0, 0, 0.654902)
+script = ExtResource("3_1y667")
+
+[node name="Label" type="Label" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = 21.0
+offset_right = 41.0
+offset_bottom = 66.0
+grow_horizontal = 2
+text = "paused"
+
+[node name="mvolume" type="Label" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 73.0
+offset_right = -11.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "master volume"
+
+[node name="music" type="Label" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 121.0
+offset_right = -11.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "music"
+
+[node name="sfx" type="Label" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 171.0
+offset_right = -11.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "sfx"
+
+[node name="ResumeButton" type="Button" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -27.0
+offset_right = 64.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "resume"
+
+[node name="mslider" type="HSlider" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 86.0
+offset_right = 227.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_t42d7")
+
+[node name="musicslider" type="HSlider" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 134.0
+offset_right = 227.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_t42d7")
+bus_name = "Music"
+
+[node name="sfxslider" type="HSlider" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 183.0
+offset_right = 227.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_t42d7")
+bus_name = "SFX"
+
+[connection signal="pressed" from="Pause/PauseMenu/ResumeButton" to="Pause/PauseMenu" method="_on_resume_button_pressed"]
