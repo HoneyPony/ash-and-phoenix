@@ -185,25 +185,55 @@ var game_dataaa = [
 	WORD("to", 5.4, 120, 100),
 	WORD("that", 5.6, 240, 100),
 		
-		]
-	
-var game_data = [
+
+	# note on 7: -252, -168, -84, 0, 84, 168, 252
 	WAIT(),
-	WORD("i'm", 0, -252),
-	WORD("hoping", 0.1, -168),
-	WORD("to", 0.2, -84), # originally "i", but that makes typing weird
-	WORD("hear", 0.3, 0),
-	WORD("back", 0.4, 84),
-	WORD("from", 0.5, 168),
-	WORD("you!", 0.6, 252),
+	WORD("i'm", 0, -70),
+	WORD("hoping", 0.1, 70),
+	WORD("to", 0.2, -240, 100), # originally "i", but that makes typing weird
+	WORD("hear", 0.3, -120, 100),
+	WORD("back", 0.4, 0, 100),
+	WORD("from", 0.5, 120, 100),
+	WORD("you!", 0.6, 240, 100),
 	
 	WAIT(),
 	WORD("ash", 0, 0),
+	
+			]
+	
+	
+var game_data = [
 	
 	WAIT(),
 	CHANGE_PHOENIX(),
 	WORD("dear", 0, -100),
 	WORD("ash", 0.3, 40),
+	
+	WAIT(),
+	WORD("what", 0, -210),
+	WORD("a", 0.2, -70),
+	WORD("pleasant", 0.4, 70),
+	WORD("surprise!", 0.6, 210),
+	
+	WAIT(),
+	WORD("i", 0, -140),
+	WORD("hardly", 0.4, 0),
+	WORD("remembered", 0.8, 140),
+	WORD("our", 1.2, -140, 60),
+	WORD("time", 1.6, 0, 60),
+	WORD("capsule", 2.0, 140, 60),
+	
+	WAIT(),
+	WORD("but", 0, -210),
+	WORD("seeing", 0.4, -70),
+	WORD("your", 0.8, 70),
+	WORD("letter", 1.2, 210),
+	
+	WORD("the", 1.6, -180, 60),
+	WORD("memories", 2.0, -40, 60),
+	WORD("came", 2.4, 100, 60),
+	WORD("rushing", 2.8, 40, 120),
+	WORD("back", 3.2, 180, 120),
 	
 	#[0, 0, -210, "i"],
 	#[0, 1, -70, "don't"],
