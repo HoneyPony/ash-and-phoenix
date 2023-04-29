@@ -51,6 +51,7 @@ func measure_input(input: String):
 		
 		var next_char = text[i]
 		
+		print("initial compare: ", input[input_idx], " ", next_char)
 		if input[input_idx] == next_char:
 			# This input character matches! Increment the input_idx
 			# to move past it.
@@ -74,6 +75,7 @@ func measure_input(input: String):
 			# Okay, now try to find the character in the input.
 			while input_idx < input.length():
 				if input[input_idx] == next_char:
+					input_idx += 1 # Move past the correct char
 					break
 				
 				input_idx += 1 # Increment must happen right before loop check
@@ -82,4 +84,4 @@ func measure_input(input: String):
 				return [mistakes, i, false]
 		
 	# Hmm... idk
-	return [mistakes, text.length() - mistakes, false]
+	return [mistakes, text.length(), true]
