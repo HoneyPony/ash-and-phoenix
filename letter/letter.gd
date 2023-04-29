@@ -28,7 +28,7 @@ func _process(delta):
 			add_to_group("Letter")
 
 func render_text(correct: int, some_wrong: bool):
-	text_display.text = "[center][color=green]"
+	text_display.text = "[center][color=#000]"
 	for i in range(0, correct):
 		text_display.text += text[i]
 	text_display.text += "[/color]"
@@ -38,7 +38,7 @@ func render_text(correct: int, some_wrong: bool):
 	if some_wrong:
 		var index = correct
 		if index < text.length():
-			text_display.text += "[color=red]" + text[index] + "[/color]"
+			text_display.text += "[color=#800909]" + text[index] + "[/color]"
 			no_status_index += 1
 			
 	for i in range(no_status_index, text.length()):
