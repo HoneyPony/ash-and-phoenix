@@ -26,11 +26,35 @@ func _process(delta):
 	# 2. Figure out if there's a letter who is done. If so, call it done.
 	# 3. Render all the letters, to show the matched text.
 	var has_valid_letter = false
+	var has_completed_letter = false
+	
 	for letter in get_tree().get_nodes_in_group("Letter"):
 		var measure = letter.measure_input(next_input)
-		print(measure, " ", next_input)
+
 		if measure[0] <= max_mistakes:
 			has_valid_letter = true
-		
 			letter.render_text(measure[1], measure[0] > 0)
+			
+			# If the letter was completed, send it off! and
+			# we will have to reset everything
+			if letter.text.length() == measure[1]:
+				has_completed_letter = true
+				letter.complete()
+				break
+		else:
+			# Clear letter's render
+			letter.render_text(0, false)
+		
+		
+	# If there's not a single valid letter, reset the typed text.
+	# This is important for a few reasons:
+	# 1. We don't *really* want an arbitrarily long string
+	# 2. The first letter must always match exactly
+	if not has_valid_letter:
+		next_input = ""
+		
+	if has_completed_letter:
+		next_input = ""
+		for letter in get_tree().get_nodes_in_group("Letter"):
+			letter.render_text(0, false)
 	
