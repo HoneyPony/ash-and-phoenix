@@ -40,6 +40,8 @@ func _process(delta):
 	else:
 		modulate.a = max(modulate.a - delta, 0.0)
 	
+	
+	
 	if is_completed:
 		if abs(velocity_x) < 1:
 			velocity_x = sign(position.x)
@@ -54,6 +56,8 @@ func _process(delta):
 		# DO NOT add back to Letter group after is_completed.
 		if position.y <= 460:
 			add_to_group("Letter")
+		if position.y < -380:
+			queue_free()
 
 func render_text(correct: int, some_wrong: bool):
 	text_display.text = "[center][color=#000]"
