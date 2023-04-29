@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://x5wn1mmjwih5"]
+
+[ext_resource type="PackedScene" uid="uid://cu88kepayydd1" path="res://letter/letter.tscn" id="1_ce206"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Letter" parent="." instance=ExtResource("1_ce206")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu88kepayydd1"]
+
+[ext_resource type="Texture2D" uid="uid://bugglmd2po4q6" path="res://letter/letter1/letter1.png" id="1_aee6o"]
+[ext_resource type="FontFile" uid="uid://b6pr3techvh6" path="res://fonts/handlee/Handlee-Regular.ttf" id="1_iaxyx"]
+[ext_resource type="Script" path="res://letter/letter.gd" id="1_qj84h"]
+
+[node name="Letter" type="Node2D" groups=["Letter"]]
+script = ExtResource("1_qj84h")
+
+[node name="Letter1" type="Sprite2D" parent="."]
+position = Vector2(-2, -84)
+scale = Vector2(0.5725, 0.5725)
+texture = ExtResource("1_aee6o")
+
+[node name="TextDisplay" type="RichTextLabel" parent="."]
+offset_left = -261.0
+offset_top = -203.0
+offset_right = 250.0
+offset_bottom = -118.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_iaxyx")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]preposterous[/center]"
