@@ -33,14 +33,12 @@ func _ready():
 	
 func _process(delta):
 	position.y += delta * velocity_y
-	if position.y <= 500:
-		velocity_y += delta * 230 # decelerate
-		velocity_y = min(velocity_y, -40) # can't go below -40
-	
-		if position.y > -300 or is_completed:
-			modulate.a = min(modulate.a + delta, 1.0)
-		else:
-			modulate.a = max(modulate.a - delta, 0.0)
+	velocity_y += delta * 180 # decelerate
+	velocity_y = min(velocity_y, -40) # can't go below -40
+	if position.y > -300 or is_completed:
+		modulate.a = min(modulate.a + delta * 0.7, 1.0)
+	else:
+		modulate.a = max(modulate.a - delta, 0.0)
 	
 	if is_completed:
 		if abs(velocity_x) < 1:
