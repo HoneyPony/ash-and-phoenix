@@ -1,9 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://x5wn1mmjwih5"]
+[gd_scene load_steps=8 format=3 uid="uid://x5wn1mmjwih5"]
 
 [ext_resource type="PackedScene" uid="uid://cu88kepayydd1" path="res://letter/letter.tscn" id="1_ce206"]
+[ext_resource type="Texture2D" uid="uid://csu3tuw1e0jx6" path="res://bg/circle.svg" id="2_1fqt5"]
+
+[sub_resource type="Gradient" id="Gradient_m07sa"]
+offsets = PackedFloat32Array(0, 0.19, 0.415, 0.685, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.0431373, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8vxvv"]
+gradient = SubResource("Gradient_m07sa")
+
+[sub_resource type="Curve" id="Curve_sw2kn"]
+_data = [Vector2(0, 0), 0.0, 4.86316, 0, 0, Vector2(0.112554, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.363636), -1.47, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lnx3s"]
+curve = SubResource("Curve_sw2kn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k26a6"]
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 40.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 35.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.9
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_lnx3s")
+color = Color(0.607843, 0.533333, 1, 0.176471)
+color_ramp = SubResource("GradientTexture1D_8vxvv")
+hue_variation_min = -0.02
+hue_variation_max = 0.03
 
 [node name="Game" type="Node2D"]
 
 [node name="Letter" parent="." instance=ExtResource("1_ce206")]
+scale = Vector2(0.3, 0.3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Bubbles" type="GPUParticles2D" parent="."]
+z_index = -100
+position = Vector2(-426, 897)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_k26a6")
+texture = ExtResource("2_1fqt5")
+lifetime = 60.0
+preprocess = 120.0
+visibility_rect = Rect2(-100, -1000, 200, 1000)
+
+[node name="Bubbles2" type="GPUParticles2D" parent="."]
+z_index = -100
+position = Vector2(5, 894)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_k26a6")
+texture = ExtResource("2_1fqt5")
+lifetime = 60.0
+preprocess = 120.0
+visibility_rect = Rect2(-100, -1000, 200, 1000)
+
+[node name="Bubbles3" type="GPUParticles2D" parent="."]
+z_index = -100
+position = Vector2(403, 869)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_k26a6")
+texture = ExtResource("2_1fqt5")
+lifetime = 60.0
+preprocess = 120.0
+visibility_rect = Rect2(-100, -1000, 200, 1000)

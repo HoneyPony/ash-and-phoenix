@@ -1,22 +1,203 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu88kepayydd1"]
+[gd_scene load_steps=39 format=3 uid="uid://cu88kepayydd1"]
 
 [ext_resource type="Texture2D" uid="uid://bugglmd2po4q6" path="res://letter/letter1/letter1.png" id="1_aee6o"]
 [ext_resource type="FontFile" uid="uid://b6pr3techvh6" path="res://fonts/handlee/Handlee-Regular.ttf" id="1_iaxyx"]
 [ext_resource type="Script" path="res://letter/letter.gd" id="1_qj84h"]
+[ext_resource type="Texture2D" uid="uid://d4c420d1pt1kj" path="res://letter/letter1/close/close.0000.png" id="3_ybton"]
+[ext_resource type="Texture2D" uid="uid://wmkyt4cgtgjo" path="res://letter/letter1/close/close.0001.png" id="4_f1etb"]
+[ext_resource type="Texture2D" uid="uid://bvw1qjrcyobus" path="res://letter/letter1/close/close.0002.png" id="5_e8w7x"]
+[ext_resource type="Texture2D" uid="uid://2wcarrscx056" path="res://letter/letter1/close/close.0003.png" id="6_nlg6s"]
+[ext_resource type="Texture2D" uid="uid://c6tegtvom5a5l" path="res://letter/letter1/close/close.0004.png" id="7_c3k4e"]
+[ext_resource type="Texture2D" uid="uid://b01lx6glkak81" path="res://letter/letter1/close/close.0005.png" id="8_k8m73"]
+[ext_resource type="Texture2D" uid="uid://cn7j8g5kyh5ph" path="res://letter/letter1/close/close.0006.png" id="9_4ocwf"]
+[ext_resource type="Texture2D" uid="uid://dg2caf0ner2od" path="res://letter/letter1/close/close.0007.png" id="10_j8gut"]
+[ext_resource type="Texture2D" uid="uid://b5dwsl1kbyahd" path="res://letter/letter1/close/close.0008.png" id="11_s7io6"]
+[ext_resource type="Texture2D" uid="uid://d0qm5nabj3jtp" path="res://letter/letter1/close/close.0009.png" id="12_o2vbi"]
+[ext_resource type="Texture2D" uid="uid://bwlyfpgbiff22" path="res://letter/letter1/close/close.0010.png" id="13_s7xnv"]
+[ext_resource type="Texture2D" uid="uid://ym8u4e8f4dja" path="res://letter/letter1/close/close.0011.png" id="14_fyuvd"]
+[ext_resource type="Texture2D" uid="uid://cunecl5dnvotk" path="res://letter/letter1/close/close.0012.png" id="15_vuwr2"]
+[ext_resource type="Texture2D" uid="uid://bxkib831uxmgk" path="res://letter/letter1/close/close.0013.png" id="16_cquy2"]
+[ext_resource type="Texture2D" uid="uid://b0yxox4yqwjy6" path="res://letter/letter1/close/close.0014.png" id="17_xhybf"]
+[ext_resource type="Texture2D" uid="uid://cepgqjawler10" path="res://letter/letter1/close/close.0015.png" id="18_t4ufp"]
+[ext_resource type="Texture2D" uid="uid://cwupnr3gqo8dn" path="res://letter/letter1/close/close.0016.png" id="19_gdvq5"]
+[ext_resource type="Texture2D" uid="uid://bflr8fqt1tbrt" path="res://letter/letter1/close/close.0017.png" id="20_pq5w2"]
+[ext_resource type="Texture2D" uid="uid://b8ypexeiow6b" path="res://letter/letter1/close/close.0018.png" id="21_p43kp"]
+[ext_resource type="Texture2D" uid="uid://mc4ncpch1lmu" path="res://letter/letter1/close/close.0019.png" id="22_s3eq4"]
+[ext_resource type="Texture2D" uid="uid://b8uh504womote" path="res://letter/letter1/close/close.0020.png" id="23_271vf"]
+[ext_resource type="Texture2D" uid="uid://b7yac0p6b2r44" path="res://letter/letter1/close/close.0021.png" id="24_okwem"]
+[ext_resource type="Texture2D" uid="uid://cowkah7kwpswg" path="res://letter/letter1/close/close.0022.png" id="25_dybeg"]
+[ext_resource type="Texture2D" uid="uid://dv08hvc4uqvc5" path="res://letter/letter1/close/close.0023.png" id="26_07i6m"]
+[ext_resource type="Texture2D" uid="uid://cumpp6pqnxseg" path="res://letter/letter1/close/close.0024.png" id="27_nembc"]
+[ext_resource type="Texture2D" uid="uid://djl2lg03gf45j" path="res://letter/letter1/close/close.0025.png" id="28_etpol"]
+[ext_resource type="Texture2D" uid="uid://ujgb1c7n4bwh" path="res://letter/letter1/close/close.0026.png" id="29_c4w6p"]
+[ext_resource type="Texture2D" uid="uid://myc77spnim0l" path="res://letter/letter1/close/close.0027.png" id="30_ho2sw"]
+[ext_resource type="Texture2D" uid="uid://c78sypi6s2qiq" path="res://letter/letter1/close/close.0028.png" id="31_3q5b4"]
+[ext_resource type="Texture2D" uid="uid://13nxvqj5liav" path="res://letter/letter1/close/close.0029.png" id="32_84dbo"]
+[ext_resource type="Texture2D" uid="uid://c8f3qreixqtll" path="res://letter/letter1/close/close.0030.png" id="33_6c1m2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcj7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ybton")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f1etb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e8w7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nlg6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c3k4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k8m73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4ocwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j8gut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_s7io6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o2vbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_s7xnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fyuvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vuwr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cquy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xhybf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_t4ufp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gdvq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pq5w2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_p43kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_s3eq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_271vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_okwem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_dybeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_07i6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_nembc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_etpol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_c4w6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ho2sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3q5b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_84dbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_6c1m2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [sub_resource type="Animation" id="Animation_cdesm"]
 resource_name = "Complete"
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.275, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-1000, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LetterDisplay/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 30]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LetterDisplay/TextDisplay:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-261, -203), Vector2(-261, -80)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LetterDisplay/TextDisplay:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LetterDisplay:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.3, 0.375, 0.425),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 15), Vector2(0, -15), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mycyy"]
@@ -33,6 +214,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LetterDisplay/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LetterDisplay/TextDisplay:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-261, -203)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LetterDisplay/TextDisplay:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LetterDisplay:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vn8i"]
 _data = {
@@ -40,15 +269,23 @@ _data = {
 "RESET": SubResource("Animation_mycyy")
 }
 
-[node name="Letter" type="Node2D" groups=["Letter"]]
+[node name="Letter" type="Node2D"]
 script = ExtResource("1_qj84h")
 
 [node name="Letter1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-2, -84)
 scale = Vector2(0.5725, 0.5725)
 texture = ExtResource("1_aee6o")
 
-[node name="TextDisplay" type="RichTextLabel" parent="."]
+[node name="LetterDisplay" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LetterDisplay"]
+position = Vector2(-3, -80)
+scale = Vector2(0.570625, 0.570625)
+sprite_frames = SubResource("SpriteFrames_bcj7i")
+
+[node name="TextDisplay" type="RichTextLabel" parent="LetterDisplay"]
 offset_left = -261.0
 offset_top = -203.0
 offset_right = 250.0

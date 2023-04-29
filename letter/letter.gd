@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var text_display = $TextDisplay
+@onready var text_display = $LetterDisplay/TextDisplay
 
 var text = "preposterous"
 
@@ -8,6 +8,13 @@ var is_completed = false
 
 func _ready():
 	text_display.text = "[center]" + text + "[/center]"
+	
+	position.y = 400 + 80
+	
+func _process(delta):
+	position.y -= delta * 40
+	if position.y <= 400:
+		add_to_group("Letter")
 
 func render_text(correct: int, some_wrong: bool):
 	text_display.text = "[center][color=green]"
