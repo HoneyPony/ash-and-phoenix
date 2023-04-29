@@ -9,12 +9,26 @@ var is_completed = false
 var velocity_x = 0.0
 var velocity_y = -300
 
+var is_letter2 = false # Whether to use the second variation
+@export var letter2_frames: SpriteFrames
+@export var letter2_font: Font
+
+#func letter_shake():
+#	var rng = Vector2.from_angle(randf_range(0, 6.28)) * randf_range(0, 8)
+#	$LetterDisplay.position += (rng - $LetterDisplay.position) * 0.01
+
 func _ready():
 	text_display.text = "[center]" + text + "[/center]"
 	
 	#position.y = 400 + 100
 	
 	modulate.a = 0
+	if is_letter2:
+		$LetterDisplay/AnimatedSprite2D.sprite_frames = letter2_frames
+		text_display.add_theme_font_override("normal_font", letter2_font)
+		text_display.add_theme_font_size_override("normal_font_size", 78)
+		text_display.position.y -= 10
+		
 	#position.x = randf_range(-40, 40)
 	
 func _process(delta):

@@ -18,7 +18,7 @@ var GAME_TIMER_FACTOR = 1
 
 # Stores the game data
 var game_data = [
-	[0,   0, -210, "hello"],
+	[0, 0, -210, "hello"],
 	[0.2, 1, -70, "ludum"],
 	[0.4, 2, 70, "dare"],
 	[0.6, 3, 210, "game"]
@@ -41,6 +41,7 @@ func check_next_entry():
 		letter.text = next_entry[3]
 		letter.position.x = next_entry[2]
 		letter.position.y = 500 + next_entry[1] * 40
+		letter.is_letter2 = true
 		get_node("/root/Game").add_child(letter)
 		
 		game_data_index += 1
