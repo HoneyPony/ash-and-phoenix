@@ -461,8 +461,8 @@ var game_data = [
 	WORD("good", 4.0, 120, 120),
 	WORD("fit", 4.2, 240, 120),
 	
-		
-
+	
+	
 	WAIT(),
 	WORD("i", 0, -240),
 	WORD("think", 0.2, -120),
@@ -491,8 +491,8 @@ var game_data = [
 
 	WAIT(),
 	CHANGE_PHOENIX(),
-	WORD("dear", 1.5, -100),
-	WORD("ash", 2.0, 40),
+	WORD("dear", 3.8, -100),
+	WORD("ash", 4.3, 40),
 	
 	WAIT(),
 	WORD("i", 0, -210),
@@ -508,7 +508,7 @@ var game_data = [
 	WORD("your", 3.2, -120, 120),
 	WORD("new", 3.6, 0, 120),
 	WORD("pet", 4.0, 120, 120),
-	WORD("dog", 4.4, 240, 120),
+	WORD("dog!", 4.4, 240, 120),
 	
 
 	WAIT(),
@@ -690,17 +690,16 @@ var game_data = [
 	WORD("me", 0.6, -70, 60),
 	WORD("practice", 0.8, 70, 60),
 	WORD("guitar", 1.0, 210, 60),
-	
+
 	WAIT(),
 	WORD("what", 0, -210),
 	WORD("a", 0.2, -120),
 	WORD("great", 0.4, 120),
 	WORD("dog!", 0.6, 210),
 	WAIT(),
-	
 		
 
-	TIME_PASS(4),
+	TIME_PASS(16),
 
 	CHANGE_PHOENIX(),
 	
