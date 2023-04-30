@@ -463,15 +463,227 @@ var game_dataaa = [
 	WORD("be", 2.8, -40, 180),
 	WORD("rather", 3.2, 100, 180),
 	WORD("magical", 4.0, 240, 180),
-					]
-	
-	
-var game_data = [
+
 	WAIT(),
 	WORD("let", 0, -210),
 	WORD("me", 0.4, -70),
 	WORD("know", 0.8, 70),
 	WORD("ash", 2.4, 210, 0),
+	
+
+	WAIT(),
+	CHANGE_PHOENIX(),
+	WORD("dear", 1.5, -100),
+	WORD("ash", 2.0, 40),
+	
+	WAIT(),
+	WORD("i", 0, -210),
+	WORD("hope", 0.4, -70),
+	WORD("you", 0.8, 70),
+	WORD("are", 1.2, 210),
+	
+	WORD("getting", 1.6, -180, 60),
+	WORD("along", 2.0, -30, 60),
+	WORD("well", 2.4, 110, 60),
+	
+	WORD("with", 2.8, -240, 120),
+	WORD("your", 3.2, -120, 120),
+	WORD("new", 3.6, 0, 120),
+	WORD("pet", 4.0, 120, 120),
+	WORD("dog", 4.4, 240, 120),
+	
+
+	WAIT(),
+	WORD("i", 0, -210),
+	WORD("know", 0.4, -70),
+	WORD("we", 0.8, 70),
+	WORD("already", 1.2, 210),
+
+	WORD("discussed", 2.4, -210),
+	WORD("her", 2.9, -70),
+	WORD("medical", 3.4, 70),
+	WORD("situation", 3.9, 210),
+	WORD("at", 4.4, 60, 60),
+	WORD("length", 4.9, 200, 60),
+	
+	WORD("but", 6.0, 0, 60),
+	
+	
+	WAIT(),
+	WORD("i", 0, -240),
+	WORD("wanted", 0.2, -120),
+	WORD("to", 0.4, 0),
+	WORD("reach", 0.6, 120),
+	WORD("out", 0.8, 240),
+	
+	WORD("and", 1.4, -180, 30),
+	WORD("say", 1.6, -40, 30),
+	
+	WORD("if", 2.6, -240, 60),
+	WORD("you", 2.8, -120, 60),
+	WORD("ever", 3.0, 0, 60),
+	WORD("run", 3.2, 120, 60),
+	WORD("into", 3.4, 240, 60),
+	
+	WORD("any", 4.4, 40, 60),
+	WORD("complications", 5.4, 180, 60),
+	
+	WORD("feel", 5.8, -180, 120),
+	WORD("free", 6.2, -40, 120),
+	
+	WORD("to", 6.6, -240, 180),
+	WORD("discuss", 7.0, -120, 180),
+	WORD("them", 7.3, 0, 180),
+	WORD("with", 7.5, 120, 180),
+	WORD("me", 7.7, 240, 180),
+
+	
+	WAIT(),
+	WORD("i'm", 0, -240),
+	WORD("not", 0.2, -120),
+	WORD("a", 0.4, 0),
+	WORD("complete", 0.9, 120),
+	WORD("expert", 1.2, 240),
+	
+	WORD("but", 2.4, -230),
+	
+	WAIT(),
+	WORD("i", 0, -110),
+	WORD("know", 0.2, 10),
+	WORD("a", 0.4, 130),
+	WORD("lot", 0.6, 250),
+	
+	WORD("and", 0.8, -240, 60),
+	
+	WAIT(),
+	WORD("i", 0, -120, 0),
+	WORD("did", 0.2, 0, 0),
+	WORD("live", 0.4, 120, 0),
+	WORD("with", 0.6, 240, 0),
+	
+	WORD("this", 0.8, -230, 60),
+	WORD("dog", 1.0, -110, 60),
+	WORD("for", 1.2, 10, 60),
+	WORD("a", 1.4, 110, 60),
+	WORD("while", 1.6, 230, 60),
+
+	
+	WAIT(),
+	WORD("sincerely", 0, -70),
+	WORD("phoenix", 0.5, 70),
+	
+	WAIT(),
+	WORD("ps:", 0.0, -210),
+	
+	WAIT(),
+	WORD("if", 0, -230),
+	WORD("you", 0.2, -90),
+	WORD("ever", 0.4, 50),
+	WORD("settled", 0.6, 190),
+	
+	WORD("on", 1.0, -50, 60),
+	WORD("her", 1.2, 90, 60),
+	WORD("name", 1.4, 190, 60),
+	
+	WORD("i'd", 1.8, -240, 100),
+	WORD("love", 1.9, -120, 100),
+	WORD("to", 2.0, 0, 100),
+	WORD("hear", 2.1, 120, 100),
+	WORD("it!", 2.2, 240, 100),
+	
+
+	
+	WAIT(),
+	CHANGE_ASH(),
+	WORD("dear", 0.8, -70),
+	WORD("phoenix", 1.1, 70),
+	
+	WAIT(),
+	WORD("thanks", 0, -210),
+	WORD("for", 0.4, -70),
+	WORD("reaching", 0.8, 70),
+	WORD("out!", 1.2, 210),
+	
+	WAIT(),
+	WORD("she's", 0, -140),
+	WORD("doing", 0.4, 0),
+	WORD("great!", 0.8, 140),
+
+	
+	WAIT(),
+	WORD("i", 0, -240),
+	WORD("decided", 0.4, -120),
+	WORD("to", 0.8, 0),
+	WORD("name", 1.2, 120),
+	WORD("her", 1.6, 240),
+	
+	WORD("serendipity", 3.6, 0, 30),
+	
+	WORD("due", 4.6, -250, 90),
+	WORD("to", 4.8, -130, 90),
+	WORD("the", 5.0, -10, 90),
+	WORD("incredible", 5.2, 110, 90),
+	WORD("circumstances", 5.4, 230, 90),
+	
+	WORD("leading", 5.6, -210, 150),
+	WORD("to", 5.8, -70, 150),
+	WORD("her", 6.0, 70, 150),
+	WORD("adoption", 6.2, 210, 150),
+	
+				]
+	
+	
+var game_data = [
+	
+	WAIT(),
+	WORD("stay", 0, -210),
+	WORD("in", 0.4, -70),
+	WORD("touch", 0.8, 70),
+	WORD("ash", 2.4, 210, 0),
+	
+	WAIT(),
+	WORD("ps:", 0, -210),
+	
+	WAIT(),
+	WORD("attached", 0, -240),
+	WORD("to", 0.2, -120),
+	WORD("this", 0.4, 0),
+	WORD("letter", 0.6, 120),
+	WORD("are", 0.8, 240),
+	
+	WORD("some", 1.2, -140, 60),
+	WORD("photos", 1.4, 0, 60),
+	
+	WAIT(),
+	WORD("there's", 0, -240),
+	WORD("her", 0.2, -120),
+	WORD("on", 0.4, -240, 60),
+	WORD("our", 0.6, -120, 60),
+	WORD("first", 0.8, 0, 60),
+	WORD("hike", 1.0, 120, 60),
+	WORD("together", 1.2, 240, 60),
+	
+	WAIT(),
+	WORD("there's", 0, -240),
+	WORD("her", 0.2, -120),
+	WORD("playing", 0.4, -70, 60),
+	WORD("fetch", 0.6, 70, 60),
+	
+	WAIT(),
+	WORD("there's", 0, -240),
+	WORD("her", 0.2, -120),
+	WORD("helping", 0.4, -210, 60),
+	WORD("me", 0.6, -70, 60),
+	WORD("practice", 0.8, 70, 60),
+	WORD("guitar", 1.0, 210, 60),
+	
+	WAIT(),
+	WORD("what", 0, -210),
+	WORD("a", 0.2, -120),
+	WORD("great", 0.4, 120),
+	WORD("dog!", 0.6, 210),
+	
+	
 ]
 
 func _input(event):
