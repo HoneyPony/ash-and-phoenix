@@ -191,7 +191,6 @@ var game_dataaa = [
 	WORD("to", 5.4, 120, 100),
 	WORD("that", 5.6, 240, 100),
 		
-
 	# note on 7: -252, -168, -84, 0, 84, 168, 252
 	WAIT(),
 	WORD("i'm", 0, -70),
@@ -202,13 +201,14 @@ var game_dataaa = [
 	WORD("from", 0.5, 120, 100),
 	WORD("you!", 0.6, 240, 100),
 	
-	WAIT(),
-	WORD("ash", 0, 0),
+
+	WORD("ash", 2.8, 210, 100), #Used to have a WAIT(), but I think it's cooler to do it
+		# so that the signature is like, formatted on the same thing as the signoff
 	
 	WAIT(),
 	CHANGE_PHOENIX(),
-	WORD("dear", 0, -100),
-	WORD("ash", 0.3, 40),
+	WORD("dear", 0.8, -100),
+	WORD("ash", 1.1, 40),
 	
 	WAIT(),
 	WORD("what", 0, -210),
@@ -339,7 +339,7 @@ var game_dataaa = [
 	WORD("in", 4.0, 0, 60),
 	WORD("my", 4.4, 120, 60),
 	WORD("home", 4.8, 240, 60),
-	
+
 	WAIT(),
 	WORD("it's", 0, -210),
 	WORD("not", 0.4, -70),
@@ -351,20 +351,20 @@ var game_dataaa = [
 	WORD("really", 3.0, 0),
 	WORD("something", 3.1, 120),
 	WORD("magical", 3.2, 240),
-	
+
 	WORD("about", 3.8, -200, 60),
 	WORD("helping", 3.9, -60, 60),
 	WORD("those", 4.0, 80, 60),
 	WORD("animals", 4.1, 220, 60),
-	
+
 	WAIT(),
-	WORD("sincerely", 1, -70),
-	WORD("phoenix", 1.5, 70),
+	WORD("sincerely", 0.6, -70),
+	WORD("phoenix", 1.1, 70),
 	
 	WAIT(),
 	CHANGE_ASH(),
-	WORD("dear", 0, -70),
-	WORD("phoenix", 0.4, 70),
+	WORD("dear", 0.8, -70),
+	WORD("phoenix", 1.1, 70),
 	#[0, 0, -210, "i"],
 	#[0, 1, -70, "don't"],
 	#[0, 2, 70, "recall"],
@@ -425,11 +425,7 @@ var game_dataaa = [
 	WORD("pet", 0.4, -70),
 	WORD("dog", 0.8, 70),
 	WORD("soon", 1.2, 210),
-	
-	]
-	
-	
-var game_data = [
+
 	WAIT(),
 	WORD("and", 0, -210).disable_a(),
 	WORD("i", 0.2, -70),
@@ -438,14 +434,44 @@ var game_data = [
 	
 	WORD("one", 0.8, -210, 60),
 	WORD("of", 1.0, -70, 60),
-	WORD("your", 1.8, 70, 60),
-	WORD("dogs", 2.6, 210, 60),
+	WORD("your", 2.0, 70, 60),
+	WORD("dogs", 3.0, 210, 60),
 	
-	WORD("would", 3.0, -240, 120),
-	WORD("be", 3.2, -120, 120),
-	WORD("a", 3.4, 0, 120),
-	WORD("good", 3.6, 120, 120),
-	WORD("fit", 3.8, 240, 120),
+	WORD("would", 3.4, -240, 120),
+	WORD("be", 3.6, -120, 120),
+	WORD("a", 3.8, 0, 120),
+	WORD("good", 4.0, 120, 120),
+	WORD("fit", 4.2, 240, 120),
+	
+		
+
+	WAIT(),
+	WORD("i", 0, -240),
+	WORD("think", 0.2, -120),
+	WORD("adopting", 0.4, 0),
+	WORD("from", 0.6, 120),
+	WORD("an", 0.8, 240),
+	
+	WORD("old", 1.0, -210, 60),
+	WORD("friend's", 1.2, -70, 60),
+	WORD("dog", 1.4, 70, 60),
+	WORD("rescue", 1.6, 210, 60),
+	
+	WORD("would", 2.0, -100, 120),
+	WORD("itself", 2.4, 40, 120),
+	
+	WORD("be", 2.8, -40, 180),
+	WORD("rather", 3.2, 100, 180),
+	WORD("magical", 4.0, 240, 180),
+					]
+	
+	
+var game_data = [
+	WAIT(),
+	WORD("let", 0, -210),
+	WORD("me", 0.4, -70),
+	WORD("know", 0.8, 70),
+	WORD("ash", 2.4, 210, 0),
 ]
 
 func _input(event):
