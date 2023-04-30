@@ -81,7 +81,7 @@ func TIME_PASS(time):
 
 
 # Stores the game data
-var game_dataaaa = [
+var game_data = [
 	WAIT(), # wait for entry button	
 	
 	CHANGE_ASH(),
@@ -748,16 +748,13 @@ var game_dataaaa = [
 	WORD("you", 12.6, 0),
 	WORD("this", 13.2, 140),
 	
-
-	
 	WORD("basically", 13.5, 0),
 	WORD("well", 13.8, -140),
 	WORD("serendipity", 14.1, 140),
 	WORD("she.....", 14.6, 0, 20),
 	WORD("...", 16, 0, 60),
 	WORD("...", 18, 0, 60),
-				]
-var game_data = [
+
 	Chaos.new(),
 
 	WAIT(),
