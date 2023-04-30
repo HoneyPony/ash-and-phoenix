@@ -75,7 +75,7 @@ func TIME_PASS(time):
 
 
 # Stores the game data
-var game_dataaa = [
+var game_data = [
 	CHANGE_ASH(),
 	WORD("dear", 0, -70),
 	WORD("phoenix", 0.4, 70),
@@ -699,10 +699,7 @@ var game_dataaa = [
 		
 
 	TIME_PASS(4),
-							]
-	
-	
-var game_data = [
+
 	CHANGE_PHOENIX(),
 	
 	WORD("dear", 0.0, -100, 0),
@@ -755,7 +752,7 @@ var game_data = [
 	WORD("...", 18, 0, 60),
 	
 	Chaos.new(),
-	
+
 	WAIT(),
 	WORD("but", 3.0, -210),
 	
@@ -776,6 +773,7 @@ var game_data = [
 	WORD("with", 3.2, 70),
 	WORD("her.", 3.6, 210),
 	
+	WAIT(),
 	ShowThanks.new()
 ]
 
