@@ -1,0 +1,91 @@
+[gd_scene load_steps=17 format=3 uid="uid://c6xmcr3o5dxcm"]
+
+[ext_resource type="Script" path="res://sound.gd" id="1_25xyg"]
+[ext_resource type="AudioStream" uid="uid://14pc0oipa8es" path="res://sfx/write1.wav" id="1_fmw6k"]
+[ext_resource type="Script" path="res://sfx_rand.gd" id="1_ytp1o"]
+[ext_resource type="AudioStream" uid="uid://bpthtnee3qquv" path="res://sfx/write2.wav" id="3_ib12k"]
+[ext_resource type="AudioStream" uid="uid://f150jgofq8cn" path="res://sfx/write3.wav" id="4_yoamu"]
+[ext_resource type="AudioStream" uid="uid://cw1tpxojgij7q" path="res://sfx/write4.wav" id="5_3lwln"]
+[ext_resource type="AudioStream" uid="uid://bperh5sh086ow" path="res://sfx/write5.wav" id="6_vm4cs"]
+[ext_resource type="AudioStream" uid="uid://i81erww6cunc" path="res://sfx/write6.wav" id="7_y0p1s"]
+[ext_resource type="AudioStream" uid="uid://bv336g7onwtbc" path="res://sfx/write7.wav" id="8_elimk"]
+[ext_resource type="AudioStream" uid="uid://b5oraf3gg1tnt" path="res://sfx/write8.wav" id="9_p5ohh"]
+[ext_resource type="AudioStream" uid="uid://bpc6nvvd14df5" path="res://sfx/write9.wav" id="10_2hpp1"]
+[ext_resource type="AudioStream" uid="uid://b3ux8jxlxrb2q" path="res://sfx/write10.wav" id="11_yxiqt"]
+[ext_resource type="AudioStream" uid="uid://c3lpkogu36jup" path="res://sfx/write11.wav" id="12_8bluj"]
+[ext_resource type="AudioStream" uid="uid://cf1svuwi6a1os" path="res://sfx/write12.wav" id="13_u43bn"]
+[ext_resource type="AudioStream" uid="uid://d1xaunpywalls" path="res://sfx/write13.wav" id="14_vbpnt"]
+[ext_resource type="AudioStream" uid="uid://cfxhqe4d2f5y1" path="res://sfx/write14.wav" id="15_6q7uq"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_25xyg")
+
+[node name="write1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_fmw6k")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ib12k")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yoamu")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3lwln")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vm4cs")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_y0p1s")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_elimk")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_p5ohh")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write9" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_2hpp1")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write10" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_yxiqt")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write11" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8bluj")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write12" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_u43bn")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write13" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_vbpnt")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="write14" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_6q7uq")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")

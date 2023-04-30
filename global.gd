@@ -801,6 +801,8 @@ func _input(event):
 		
 		next_input += key_typed
 		
+		Sound.rand_write()
+		
 func check_next_entry():
 	if game_data_index >= game_data.size():
 		return false
@@ -897,6 +899,8 @@ func check_game_data(delta):
 	# Spawn any entries
 	while check_next_entry():
 		pass
+		
+var last_best = 0
 
 func _process(delta):
 	RenderingServer.set_default_clear_color(bg_src.color)
@@ -968,6 +972,8 @@ func _process(delta):
 		next_input = ""
 		
 	if has_completed_letter:
+		best_match_length = 0
+		last_best = 0
 		next_input = ""
 		for letter in get_tree().get_nodes_in_group("Letter"):
 			letter.render_text(0, false)
