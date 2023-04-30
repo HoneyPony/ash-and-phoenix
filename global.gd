@@ -26,12 +26,18 @@ class Word:
 	var text 
 	var xpos
 	var yoffset
+	var do_disable_a 
 
 	func _init(_text, _delay, _xpos, _yoffset):
 		delay = _delay
 		text = _text
 		xpos = _xpos
 		yoffset = _yoffset
+		do_disable_a = false
+		
+	func disable_a():
+		do_disable_a = true
+		return self
 
 class LetterChange:
 	var next_letter
@@ -334,11 +340,6 @@ var game_dataaa = [
 	WORD("my", 4.4, 120, 60),
 	WORD("home", 4.8, 240, 60),
 	
-						]
-	
-	
-var game_data = [
-	CHANGE_PHOENIX(),
 	WAIT(),
 	WORD("it's", 0, -210),
 	WORD("not", 0.4, -70),
@@ -358,11 +359,93 @@ var game_data = [
 	
 	WAIT(),
 	WORD("sincerely", 1, -70),
-	WORD("phoenix", 1.5, 70)
+	WORD("phoenix", 1.5, 70),
+	
+	WAIT(),
+	CHANGE_ASH(),
+	WORD("dear", 0, -70),
+	WORD("phoenix", 0.4, 70),
 	#[0, 0, -210, "i"],
 	#[0, 1, -70, "don't"],
 	#[0, 2, 70, "recall"],
 	#[0, 3, 210, "the"]
+
+	WAIT(),
+	WORD("it", 0, -210),
+	WORD("was", 0.3, -70),
+	WORD("delightful", 0.6, 70),
+	WORD("to", 0.9, -70, 80),
+	WORD("see", 1.2, 70, 80),
+	WORD("you", 1.5, 210, 80),
+	WORD("at", 1.8, -210, 160),
+	WORD("the", 2.1, -70, 160),
+	WORD("concert!", 2.4, 70, 160),
+	
+	WAIT(),
+	WORD("what", 0, -210),
+	WORD("a", 0.2, -70),
+	WORD("marvelous", 0.4, 70),
+	WORD("coincidence!", 0.6, 210), # originally "coincidence that was", cut for format / time/ etc
+
+	WAIT(),
+	WORD("it", 0, -240),
+	WORD("was", 0.4, -120),
+	WORD("humbling", 0.8, 0),
+	WORD("to", 1.2, 120),
+	WORD("hear", 1.6, 240),
+	WORD("about", 2.0, -240),
+	WORD("the", 2.4, -120),
+	WORD("work", 2.8, 0),
+	WORD("you", 3.2, 120),
+	WORD("do", 3.6, 240),
+	
+	WAIT(),
+	WORD("the", 0, -240),
+	WORD("dogs", 0.2, -120),
+	WORD("in", 0.4, 0),
+	WORD("your", 0.6, 120),
+	WORD("care", 0.8, 240),
+	
+	WORD("are", 2.8, 0),
+	
+	WORD("quite", 5.8, -120),
+	WORD("the", 6.2, 20),
+	WORD("handful", 6.6, 160),	
+
+	WAIT(),
+	WORD("but", 0, -180),
+	WORD("i", 0.4, -30),
+	WORD("am", 0.8, 110),
+	WORD("actually", 1.2, -110, 60),
+	WORD("considering", 1.6, 30, 60),
+	WORD("adopting", 2.0, 180, 60),
+	
+	WAIT(),
+	WORD("a", 0, -210),
+	WORD("pet", 0.4, -70),
+	WORD("dog", 0.8, 70),
+	WORD("soon", 1.2, 210),
+	
+	]
+	
+	
+var game_data = [
+	WAIT(),
+	WORD("and", 0, -210).disable_a(),
+	WORD("i", 0.2, -70),
+	WORD("wonder", 0.4, 70),
+	WORD("if", 0.6, 210),
+	
+	WORD("one", 0.8, -210, 60),
+	WORD("of", 1.0, -70, 60),
+	WORD("your", 1.8, 70, 60),
+	WORD("dogs", 2.6, 210, 60),
+	
+	WORD("would", 3.0, -240, 120),
+	WORD("be", 3.2, -120, 120),
+	WORD("a", 3.4, 0, 120),
+	WORD("good", 3.6, 120, 120),
+	WORD("fit", 3.8, 240, 120),
 ]
 
 func _input(event):
@@ -384,6 +467,7 @@ func check_next_entry():
 			letter.text = next_entry.text
 			letter.position.x = next_entry.xpos
 			letter.is_letter2 = next_letter_is_phoenix
+			letter.disable_a = next_entry.do_disable_a
 			letter.position.y = 500 + next_entry.yoffset# + next_entry[1] * 40
 			#letter.is_letter2 = true
 			get_node("/root/Game").add_child(letter)
@@ -434,16 +518,26 @@ func _process(delta):
 	var has_valid_letter = false
 	var has_completed_letter = false
 	
-	var has_completed_candidate = false
+	#var has_completed_candidate = false
 	var best_match_length = 0
+	
+	# DIsable a applies to the first (in-order) scan because it deals with order
+	var disable_a = false
 	
 	for letter in get_tree().get_nodes_in_group("Letter"):
 		var measure = letter.measure_input(next_input)
 
 		if measure[1] > best_match_length:
 			best_match_length = measure[1]
+			
+		if disable_a and letter.text == "a":
+			letter.render_text(0, false) # clear!
+			continue
 
 		if measure[0] <= max_mistakes:
+			if measure[1] > 0:
+				if letter.disable_a:
+					disable_a = true
 			has_valid_letter = true
 			letter.render_text(measure[1], measure[0] > 0)
 		else:
@@ -453,6 +547,10 @@ func _process(delta):
 	# Second pass, to check for completed letter
 	for letter in get_tree().get_nodes_in_group("Letter"):
 		var measure = letter.measure_cache # resuse measurement
+		
+		# special logic for disabling a
+		if letter.text == "a" and disable_a:
+			continue
 		
 		# If the letter was completed, send it off! and
 		# we will have to reset everything

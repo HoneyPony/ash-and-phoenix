@@ -9,6 +9,8 @@ var is_completed = false
 var velocity_x = 0.0
 var velocity_y = -300
 
+var disable_a = false
+
 var is_letter2 = false # Whether to use the second variation
 @export var letter2_frames: SpriteFrames
 @export var letter2_font: Font
