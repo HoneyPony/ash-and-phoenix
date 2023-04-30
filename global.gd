@@ -264,11 +264,7 @@ var game_dataaa = [
 	WORD("your", 3.6, 0, 120),
 	WORD("music", 4.0, 140, 120),
 	
-		]
-	
-	
-var game_data = [
-	CHANGE_PHOENIX(),
+
 	WAIT(),
 	WORD("but", 0, -140, 0),
 	WORD("get", 0.4, 0, 0),
@@ -291,7 +287,78 @@ var game_data = [
 	WORD("it's", 9.3, -210, 240),
 	WORD("the", 9.4, -70, 240),
 	WORD("same", 9.5, 70, 240),
-	WORD("one!", 9.6, 210, 240)
+	WORD("one!", 9.6, 210, 240),
+	
+
+	
+	WAIT(),
+	WORD("it", 0, -80),
+	WORD("appears", 0.4, 60),
+	WORD("that", 0.8, 200),
+	WORD("i'll", 1.6, -200, 60),
+	WORD("see", 1.7, -60, 60),
+	WORD("you", 1.8, 80, 60),
+	WORD("there!", 1.9, 220, 60),
+	
+	
+	
+	WAIT(),
+	WORD("as", 0, -160),
+	WORD("for", 0.2, -20),
+	WORD("what", 0.4, 120),
+	WORD("i", 1.2, 0, 60),
+	WORD("do", 2.0, -120, 120),
+	WORD("these", 2.2, 20, 120),
+	WORD("days", 2.4, 160, 120),
+	
+	WAIT(),
+	WORD("well", 0, 0),
+	WORD("as", 1.2, -210, 40),
+	WORD("it", 1.4, -70, 40),
+	WORD("turns", 1.6, 70, 40),
+	WORD("out", 1.8, 210, 40),
+	
+
+	WAIT(),
+	WORD("i", 0, -160),
+	WORD("actually", 0.2, -20),
+	WORD("volunteer", 0.4, 120),
+	WORD("at", 0.6, -210, 60),
+	WORD("this", 0.8, -70, 60), # originally 'a'
+	WORD("dog", 1.0, 70, 60),
+	WORD("rescue", 1.2, 210, 60),
+	
+	WORD("fostering", 3.2, -240, 60),
+	WORD("dogs", 3.6, -120, 60),
+	WORD("in", 4.0, 0, 60),
+	WORD("my", 4.4, 120, 60),
+	WORD("home", 4.8, 240, 60),
+	
+						]
+	
+	
+var game_data = [
+	CHANGE_PHOENIX(),
+	WAIT(),
+	WORD("it's", 0, -210),
+	WORD("not", 0.4, -70),
+	WORD("easy", 0.8, 70),
+	WORD("work", 1.2, 210),
+	
+	WORD("but", 2.4, -240),
+	WORD("there's", 2.8, -120),
+	WORD("really", 3.0, 0),
+	WORD("something", 3.1, 120),
+	WORD("magical", 3.2, 240),
+	
+	WORD("about", 3.8, -200, 60),
+	WORD("helping", 3.9, -60, 60),
+	WORD("those", 4.0, 80, 60),
+	WORD("animals", 4.1, 220, 60),
+	
+	WAIT(),
+	WORD("sincerely", 1, -70),
+	WORD("phoenix", 1.5, 70)
 	#[0, 0, -210, "i"],
 	#[0, 1, -70, "don't"],
 	#[0, 2, 70, "recall"],
@@ -367,22 +434,34 @@ func _process(delta):
 	var has_valid_letter = false
 	var has_completed_letter = false
 	
+	var has_completed_candidate = false
+	var best_match_length = 0
+	
 	for letter in get_tree().get_nodes_in_group("Letter"):
 		var measure = letter.measure_input(next_input)
+
+		if measure[1] > best_match_length:
+			best_match_length = measure[1]
 
 		if measure[0] <= max_mistakes:
 			has_valid_letter = true
 			letter.render_text(measure[1], measure[0] > 0)
-			
-			# If the letter was completed, send it off! and
-			# we will have to reset everything
-			if letter.text.length() == measure[1]:
-				has_completed_letter = true
-				letter.complete()
-				break
 		else:
 			# Clear letter's render
 			letter.render_text(0, false)
+			
+	# Second pass, to check for completed letter
+	for letter in get_tree().get_nodes_in_group("Letter"):
+		var measure = letter.measure_cache # resuse measurement
+		
+		# If the letter was completed, send it off! and
+		# we will have to reset everything
+		if letter.text.length() == measure[1]:
+			# Don't allow mistakes to allow a worse overall match from stealing the input
+			if measure[1] >= best_match_length:
+				has_completed_letter = true
+				letter.complete()
+				break
 		
 		
 	# If there's not a single valid letter, reset the typed text.

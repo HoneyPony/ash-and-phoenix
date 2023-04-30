@@ -80,8 +80,13 @@ func render_text(correct: int, some_wrong: bool):
 		text_display.text += text[i]
 	text_display.text += "[/center]"
 	
+var measure_cache = [0, 0]
 
 func measure_input(input: String):
+	measure_cache = measure_input_uncached(input)
+	return measure_cache
+
+func measure_input_uncached(input: String):
 	# Idea: 
 	# If the first character does not match at all, then it plainly
 	# does not match.
