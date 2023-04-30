@@ -51,7 +51,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "audio"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("ChaosMusic")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -351,7 +351,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="ChaosMusic" type="AudioStreamPlayer" parent="."]
-volume_db = -8.0
+volume_db = -16.0
 bus = &"Music"
 
 [node name="BGSrc" type="ColorRect" parent="."]

@@ -81,7 +81,7 @@ func TIME_PASS(time):
 
 
 # Stores the game data
-var game_data = [
+var game_dataaaa = [
 	WAIT(), # wait for entry button	
 	
 	CHANGE_ASH(),
@@ -516,7 +516,6 @@ var game_data = [
 	WORD("pet", 4.0, 120, 120),
 	WORD("dog!", 4.4, 240, 120),
 	
-
 	WAIT(),
 	WORD("i", 0, -210),
 	WORD("know", 0.4, -70),
@@ -530,7 +529,12 @@ var game_data = [
 	WORD("at", 4.4, 60, 60),
 	WORD("length", 4.9, 200, 60),
 	
-	WORD("but", 6.0, 0, 60),
+	WORD("when", 5.3, -200, 120),
+	WORD("you", 5.5, -60, 120),
+	WORD("adopted", 5.7, 80, 120),
+	WORD("her", 5.9, 220, 120),
+	
+	WORD("but", 7.0, 0, 120),
 	
 	
 	WAIT(),
@@ -688,7 +692,7 @@ var game_data = [
 	WORD("her", 0.2, -120),
 	WORD("playing", 0.4, -70, 60),
 	WORD("fetch", 0.6, 70, 60),
-	
+
 	WAIT(),
 	WORD("there's", 0, -240),
 	WORD("her", 0.2, -120),
@@ -699,13 +703,15 @@ var game_data = [
 
 	WAIT(),
 	WORD("what", 0, -210),
-	WORD("a", 0.2, -120),
-	WORD("great", 0.4, 120),
+	WORD("a", 0.2, -70),
+	WORD("great", 0.4, 70),
 	WORD("dog!", 0.6, 210),
 	WAIT(),
 
 	TIME_PASS(16),
-
+	]
+	
+var game_data = [
 	CHANGE_PHOENIX(),
 	
 	WORD("dear", 0.0, -100, 0),
