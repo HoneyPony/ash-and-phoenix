@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6xmcr3o5dxcm"]
+[gd_scene load_steps=23 format=3 uid="uid://c6xmcr3o5dxcm"]
 
 [ext_resource type="Script" path="res://sound.gd" id="1_25xyg"]
 [ext_resource type="AudioStream" uid="uid://14pc0oipa8es" path="res://sfx/write1.wav" id="1_fmw6k"]
@@ -16,6 +16,12 @@
 [ext_resource type="AudioStream" uid="uid://cf1svuwi6a1os" path="res://sfx/write12.wav" id="13_u43bn"]
 [ext_resource type="AudioStream" uid="uid://d1xaunpywalls" path="res://sfx/write13.wav" id="14_vbpnt"]
 [ext_resource type="AudioStream" uid="uid://cfxhqe4d2f5y1" path="res://sfx/write14.wav" id="15_6q7uq"]
+[ext_resource type="AudioStream" uid="uid://b6sjo7bxu27lu" path="res://sfx/letterslide1.wav" id="17_unti2"]
+[ext_resource type="AudioStream" uid="uid://cpg43jfr8cf30" path="res://sfx/letterslide2.wav" id="18_frnua"]
+[ext_resource type="AudioStream" uid="uid://bs06xs8vroa5" path="res://sfx/letterslide3.wav" id="19_0gpkd"]
+[ext_resource type="AudioStream" uid="uid://cv1laqxhcgti0" path="res://sfx/letterfold1.wav" id="20_783qa"]
+[ext_resource type="AudioStream" uid="uid://bkole0f421uyg" path="res://sfx/letterfol2.wav" id="21_77oh7"]
+[ext_resource type="AudioStream" uid="uid://dyh3j5ptb6ctd" path="res://sfx/letterfold3.wav" id="22_734ds"]
 
 [node name="Sound" type="Node"]
 script = ExtResource("1_25xyg")
@@ -87,5 +93,41 @@ script = ExtResource("1_ytp1o")
 
 [node name="write14" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6q7uq")
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="lslide1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_unti2")
+max_polyphony = 3
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="lslide2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_frnua")
+max_polyphony = 3
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="lslide3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_0gpkd")
+max_polyphony = 3
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="lfold1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_783qa")
+max_polyphony = 3
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="lfold2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_77oh7")
+max_polyphony = 3
+bus = &"SFX"
+script = ExtResource("1_ytp1o")
+
+[node name="lfold3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_734ds")
+max_polyphony = 3
 bus = &"SFX"
 script = ExtResource("1_ytp1o")

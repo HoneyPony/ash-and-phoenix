@@ -15,11 +15,25 @@ extends Node
 @onready var write_13 = $write13
 @onready var write_14 = $write14
 
+@onready var lslide_1 = $lslide1
+@onready var lslide_2 = $lslide2
+@onready var lslide_3 = $lslide3
+@onready var lfold_1 = $lfold1
+@onready var lfold_2 = $lfold2
+@onready var lfold_3 = $lfold3
+
 func _ready():
 	var writes = [write_1, write_2, write_3, write_4, write_5, write_6, write_7, write_8, write_9, write_10, write_11, write_12, write_13, write_14]
 	for w in writes:
 		w.start_db = -9
 		w.volume_db = -9
+		
+func rand_slide():
+	var slides = [lslide_1, lslide_2, lslide_3]
+	slides.pick_random().play_sfx()
+func rand_fold():
+	var folds = [lfold_1, lfold_2, lfold_3]
+	folds.pick_random().play_sfx()
 
 func rand_write():
 	var writes = [write_1, write_2, write_3, write_4, write_5, write_6, write_7, write_8, write_9, write_10, write_11, write_12, write_13, write_14]
