@@ -54,6 +54,14 @@ class TimePassFX:
 	func _init(_length):
 		length = _length
 		
+class Chaos:
+	func _init():
+		pass
+		
+class ShowThanks:
+	func _init():
+		pass
+		
 func CHANGE_ASH():
 	return LetterChange.new(false)
 func CHANGE_PHOENIX():
@@ -691,23 +699,31 @@ var game_dataaa = [
 		
 
 	TIME_PASS(4),
-					]
+							]
 	
 	
 var game_data = [
 	CHANGE_PHOENIX(),
 	
-	WORD("dear", 0.0, -100, 90),
-	WORD("ash", 1.0, 40, 90),
+	WORD("dear", 0.0, -100, 0),
+	WORD("ash", 1.0, 40, 0).disable_a(),
 	
-	WORD("...", 2.0, -250, 90),
+	WORD("it's", 1.8, -240, 60),
+	WORD("been", 2.0, -120, 60),
+	WORD("a", 2.2, 0, 60),
+	WORD("long", 2.4, 120, 60),
+	WORD("time", 2.6, 240, 60),
+	
+	WAIT(),
+	
+	WORD("...", 0.0, -250, 90),
 	WORD("i", 2.5, -150, 90),
 	WORD("saw", 3.0, -50, 90),
 	WORD("what", 3.5, 50, 90),
 	WORD("you", 4.0, 150, 90),
 	WORD("posted", 4.5, 250, 90),
 	WORD("and", 5.0, -250, 90),
-	WORD("...", 5.0, -150, 90),
+	WORD("...", 5.0, -150, 120),
 	
 	CHANGE_ASH(),
 	WORD("dear", 5.0, -70, 0),
@@ -729,12 +745,50 @@ var game_data = [
 	WORD("you", 12.6, 0),
 	WORD("this", 13.2, 140),
 	
+
+	
 	WORD("basically", 13.5, 0),
 	WORD("well", 13.8, -140),
 	WORD("serendipity", 14.1, 140),
 	WORD("she.....", 14.6, 0, 20),
 	WORD("...", 16, 0, 60),
+	WORD("...", 18, 0, 60),
+	
+	Chaos.new(),
+	
+	WAIT(),
+	WORD("but", 3.0, -210),
+	
+	WAIT(),
+	WORD("thank", 0, -70),
+	WORD("you", 0.04, 70),
+	WORD("phoenix", 1.0, 210),
+	
+	WAIT(),
+	WORD("for", 0, -240),
+	WORD("all", 0.4, -120),
+	WORD("the", 0.8, 0),
+	WORD("good", 1.2, 120),
+	WORD("times", 1.6, 240),
+	
+	WORD("i", 2.4, -210),
+	WORD("shared", 2.8, -70),
+	WORD("with", 3.2, 70),
+	WORD("her.", 3.6, 210),
+	
+	ShowThanks.new()
 ]
+
+var chaos_src = "i don't know how to say this phoenix she's gone phoenix and i don't know what to do anymore she's GONE and i'm a wreck and i can't think straight and i can't even seem to send this letter and all i can do is think of just everything we used to do and how that's all just gone now you know like how do you even deal with that"
+var chaos_arr = []
+var chaos_idx = 0
+var chaos_counter = 0
+var chaos_rate = 0.8 # start slow, then speed up
+
+func _ready():
+	# Setup chaos.. easier to program this way
+	chaos_arr = Array(chaos_src.split(" "))
+	print(chaos_arr.size())
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
@@ -749,7 +803,35 @@ func check_next_entry():
 	
 	var next_entry = game_data[game_data_index]
 	
-	if is_instance_of(next_entry, Word):
+	if is_instance_of(next_entry, Chaos):
+		# randomly spawn these things very very quickly
+		if timer > randf_range(max(0.016666, chaos_rate), max(0.2, chaos_rate)):
+			chaos_rate = max(chaos_rate - 0.04, 0)
+			timer = 0 # reset timer
+			var letter = Letter.instantiate()
+			letter.text = chaos_arr[chaos_idx]
+			letter.max_vel_y = randf_range(-240, -120)
+			if chaos_rate > 0.5:
+				letter.max_vel_y = -160
+			chaos_idx += 1
+			if chaos_idx >= chaos_arr.size():
+				chaos_idx = 0
+				chaos_arr.shuffle()
+				
+			letter.position.x = randf_range(-240, 240)
+			letter.is_letter2 = false
+			letter.position.y = 500 + randf_range(0, 30)
+			get_node("/root/Game").add_child(letter)
+			
+			chaos_counter += 1
+			if chaos_counter > 160:
+				# Finally done
+				game_data_index += 1
+				return true # not really necessary but technically correct
+				
+			return false # Only execute once per tick
+		return false
+	elif is_instance_of(next_entry, Word):
 		if next_entry.delay * GAME_TIMER_FACTOR <= timer:
 			var letter = Letter.instantiate()
 			letter.text = next_entry.text
@@ -784,6 +866,13 @@ func check_next_entry():
 			timer = 0 # Reset timer on TIME_PASS
 			return true
 		# wait
+		return false
+	elif is_instance_of(next_entry, ShowThanks):
+		if timer > 8.0: # 8 second wait for the message
+			timer = 0
+			game_data_index += 1
+			get_node("/root/Game/PlayMsg").show()
+			return true
 		return false
 	else:
 		print("warning: unknown command encountered in command list")

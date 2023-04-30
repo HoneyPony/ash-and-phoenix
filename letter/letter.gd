@@ -9,6 +9,8 @@ var is_completed = false
 var velocity_x = 0.0
 var velocity_y = -300
 
+var max_vel_y = -40
+
 var disable_a = false
 
 var is_letter2 = false # Whether to use the second variation
@@ -36,7 +38,7 @@ func _ready():
 func _process(delta):
 	position.y += delta * velocity_y
 	velocity_y += delta * 180 # decelerate
-	velocity_y = min(velocity_y, -40) # can't go below -40
+	velocity_y = min(velocity_y, max_vel_y) # can't go below -40
 	if position.y > -300 or is_completed:
 		modulate.a = min(modulate.a + delta * 0.7, 1.0)
 	else:
