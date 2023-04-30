@@ -42,7 +42,10 @@ func _process(delta):
 	if position.y > -300 or is_completed:
 		modulate.a = min(modulate.a + delta * 0.7, 1.0)
 	else:
+		var l = modulate.a
 		modulate.a = max(modulate.a - delta, 0.0)
+		if l >= 0.5 and modulate.a < 0.5:
+			Sound.rand_slide()
 	
 	
 	
@@ -165,3 +168,7 @@ func complete():
 	# May not be needed anymore
 	is_completed = true
 	$AnimationPlayer.play("Complete")
+	Sound.rand_slide()
+	
+func close_fx():
+	Sound.rand_fold()

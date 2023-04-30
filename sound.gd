@@ -28,6 +28,11 @@ func _ready():
 		w.start_db = -9
 		w.volume_db = -9
 		
+	var folds = [lfold_1, lfold_2, lfold_3]
+	for f in folds:
+		f.start_db = -6
+		f.volume_db = -6
+		
 func rand_slide():
 	var slides = [lslide_1, lslide_2, lslide_3]
 	slides.pick_random().play_sfx()
