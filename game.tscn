@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://x5wn1mmjwih5"]
+[gd_scene load_steps=10 format=3 uid="uid://x5wn1mmjwih5"]
 
 [ext_resource type="Texture2D" uid="uid://csu3tuw1e0jx6" path="res://bg/circle.svg" id="2_1fqt5"]
 [ext_resource type="Theme" uid="uid://co5itmp8c11dp" path="res://theme.tres" id="2_7sfgj"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="3_1y667"]
 [ext_resource type="Script" path="res://volume_slider.gd" id="3_t42d7"]
 [ext_resource type="PackedScene" uid="uid://pm2xutwkbpfq" path="res://letter/entry_button.tscn" id="5_7fm3c"]
+[ext_resource type="AudioStream" uid="uid://c221thk1nhi1c" path="res://music/music_loop.ogg" id="6_xxj5t"]
 
 [sub_resource type="Curve" id="Curve_sw2kn"]
 _data = [Vector2(0, 0), 0.0, 4.86316, 0, 0, Vector2(0.112554, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.363636), -1.47, 0.0, 0, 0]
@@ -251,6 +252,7 @@ take it as easy (or hard) as you wish!"
 horizontal_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_xxj5t")
 autoplay = true
 bus = &"Music"
 
