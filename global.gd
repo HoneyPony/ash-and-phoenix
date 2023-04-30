@@ -2,6 +2,12 @@ extends Node
 
 var Letter = preload("res://letter/letter.tscn")
 
+var bg_src = null
+var anim: AnimationPlayer = null
+
+var time_pass_played = false
+var chaos_played = false
+
 # The next inputted string. Once you make N mistakes, the string is reset.
 # Otherwise, we try to match it to existing Letter instances.
 var next_input = ""
@@ -75,7 +81,7 @@ func TIME_PASS(time):
 
 
 # Stores the game data
-var game_data = [
+var game_dataaaa = [
 	WAIT(), # wait for entry button	
 	
 	CHANGE_ASH(),
@@ -697,7 +703,6 @@ var game_data = [
 	WORD("great", 0.4, 120),
 	WORD("dog!", 0.6, 210),
 	WAIT(),
-		
 
 	TIME_PASS(16),
 
@@ -711,7 +716,7 @@ var game_data = [
 	WORD("a", 2.2, 0, 60),
 	WORD("long", 2.4, 120, 60),
 	WORD("time", 2.6, 240, 60),
-	
+
 	WAIT(),
 	
 	WORD("...", 0.0, -250, 90),
@@ -751,7 +756,8 @@ var game_data = [
 	WORD("she.....", 14.6, 0, 20),
 	WORD("...", 16, 0, 60),
 	WORD("...", 18, 0, 60),
-	
+				]
+var game_data = [
 	Chaos.new(),
 
 	WAIT(),
@@ -787,6 +793,9 @@ var chaos_rate = 0.8 # start slow, then speed up
 func _ready():
 	# Setup chaos.. easier to program this way
 	chaos_arr = Array(chaos_src.split(" "))
+	
+	bg_src = get_node("/root/Game/BGSrc")
+	anim = get_node("/root/Game/AnimationPlayer")
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
@@ -802,6 +811,10 @@ func check_next_entry():
 	var next_entry = game_data[game_data_index]
 	
 	if is_instance_of(next_entry, Chaos):
+		if not chaos_played:
+			anim.play("Chaos")
+			chaos_played = true
+		
 		# randomly spawn these things very very quickly
 		if timer > randf_range(max(0.016666, chaos_rate), max(0.2, chaos_rate)):
 			chaos_rate = max(chaos_rate - 0.04, 0)
@@ -858,6 +871,9 @@ func check_next_entry():
 			game_data_index += 1
 		return ready
 	elif is_instance_of(next_entry, TimePassFX):
+		if not time_pass_played:
+			anim.play("TimePass")
+			time_pass_played = true
 		# TODO: Sound effect...?
 		if next_entry.length <= timer:
 			game_data_index += 1
@@ -886,6 +902,8 @@ func check_game_data(delta):
 		pass
 
 func _process(delta):
+	RenderingServer.set_default_clear_color(bg_src.color)
+	
 	check_game_data(delta)
 	
 	# Can't do anything with no text input
