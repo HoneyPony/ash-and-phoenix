@@ -199,11 +199,6 @@ var game_dataaa = [
 	WAIT(),
 	WORD("ash", 0, 0),
 	
-			]
-	
-	
-var game_data = [
-	
 	WAIT(),
 	CHANGE_PHOENIX(),
 	WORD("dear", 0, -100),
@@ -235,6 +230,68 @@ var game_data = [
 	WORD("rushing", 2.8, 40, 120),
 	WORD("back", 3.2, 180, 120),
 	
+
+	
+	WAIT(),
+	WORD("and", 0, -70),
+	WORD("thankfully", 0.2, 70),
+	WORD("i", 1.2, -210, 60),
+	WORD("still", 1.6, -70, 60),
+	WORD("have", 2.0, 70, 60),
+	WORD("my", 2.4, 210, 60),
+	
+	WORD("own", 2.8, -140, 120),
+	WORD("ancient", 3.2, 0, 120),
+	WORD("stationery", 3.6, 140, 120),
+	
+	WORD("for", 6.0, -200, 120),
+	WORD("writing", 6.4, -60, 120),
+	WORD("this", 6.8, 80, 120),
+	WORD("reply", 7.2, 220, 120),
+
+	WAIT(),
+	WORD("it's", 0, -210),
+	WORD("great", 0.4, -70),
+	WORD("to", 0.8, 70),
+	WORD("hear", 1.2, 210),
+	
+	WORD("that", 1.6, -210, 60),
+	WORD("you're", 2.0, -70, 60),
+	WORD("finding", 2.4, 70, 60),
+	WORD("success", 2.8, 210, 60),
+	
+	WORD("with", 3.2, -140, 120), # originall "as a musician"
+	WORD("your", 3.6, 0, 120),
+	WORD("music", 4.0, 140, 120),
+	
+		]
+	
+	
+var game_data = [
+	CHANGE_PHOENIX(),
+	WAIT(),
+	WORD("but", 0, -140, 0),
+	WORD("get", 0.4, 0, 0),
+	WORD("this", 0.8, 140, 0),
+	
+	
+	WORD("i", 3.4, -210),
+	WORD("recently", 3.8, -70),
+	WORD("bought", 4.2, 70),
+	WORD("tickets", 4.6, 210),
+	
+	WORD("to", 5.0, -140, 60),
+	WORD("a", 5.4, 0, 60),
+	WORD("concert", 5.8, 140, 60),
+	
+	WORD("and", 7.0, 0, 120),
+	WORD("it", 7.4, -140, 180),
+	WORD("turns", 7.8, 0, 180),
+	WORD("out", 8.2, 140, 180),
+	WORD("it's", 9.3, -210, 240),
+	WORD("the", 9.4, -70, 240),
+	WORD("same", 9.5, 70, 240),
+	WORD("one!", 9.6, 210, 240)
 	#[0, 0, -210, "i"],
 	#[0, 1, -70, "don't"],
 	#[0, 2, 70, "recall"],
