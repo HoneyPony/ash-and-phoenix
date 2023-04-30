@@ -48,6 +48,12 @@ class WaitForWords:
 	func _init():
 		pass
 		
+class TimePassFX:
+	var length
+	
+	func _init(_length):
+		length = _length
+		
 func CHANGE_ASH():
 	return LetterChange.new(false)
 func CHANGE_PHOENIX():
@@ -56,6 +62,8 @@ func WORD(text, delay, xpos, yoffset = 0):
 	return Word.new(text, delay, xpos, yoffset)
 func WAIT():
 	return WaitForWords.new()
+func TIME_PASS(time):
+	return TimePassFX.new(time)
 
 
 # Stores the game data
@@ -629,11 +637,7 @@ var game_dataaa = [
 	WORD("to", 5.8, -70, 150),
 	WORD("her", 6.0, 70, 150),
 	WORD("adoption", 6.2, 210, 150),
-	
-				]
-	
-	
-var game_data = [
+
 	
 	WAIT(),
 	WORD("stay", 0, -210),
@@ -682,8 +686,54 @@ var game_data = [
 	WORD("a", 0.2, -120),
 	WORD("great", 0.4, 120),
 	WORD("dog!", 0.6, 210),
+	WAIT(),
+	
+		
+
+	TIME_PASS(4),
+					]
 	
 	
+var game_data = [
+	CHANGE_PHOENIX(),
+	
+	WORD("dear", 0.0, -100, 90),
+	WORD("ash", 1.0, 40, 90),
+	
+	WORD("...", 2.0, -250, 90),
+	WORD("i", 2.5, -150, 90),
+	WORD("saw", 3.0, -50, 90),
+	WORD("what", 3.5, 50, 90),
+	WORD("you", 4.0, 150, 90),
+	WORD("posted", 4.5, 250, 90),
+	WORD("and", 5.0, -250, 90),
+	WORD("...", 5.0, -150, 90),
+	
+	CHANGE_ASH(),
+	WORD("dear", 5.0, -70, 0),
+	WORD("phoenix", 5.5, 70, 0),
+	
+	WORD("i", 6.0, -240, 0),
+	WORD("thought", 6.6, -120, 0),
+	WORD("this", 7.2, 0, 0),
+	WORD("would", 7.8, 120, 0),
+	WORD("be", 8.4, 240, 0),
+	
+	WORD("the", 9, -240),
+	WORD("most", 9.6, -120),
+	WORD("appropriate", 10.2, 0),
+	WORD("medium", 10.8, 120),
+	WORD("to", 11.4, 240),
+	
+	WORD("tell", 12, -140),
+	WORD("you", 12.6, 0),
+	WORD("this", 13.2, 140),
+	
+	WORD("basically", 13.5, 0),
+	WORD("well", 13.8, -140),
+	WORD("serendipity", 14.1, 140),
+	WORD("she.....", 14.6, 0, 20),
+	WORD("...", 16, 0, 60),
 ]
 
 func _input(event):
@@ -727,6 +777,14 @@ func check_next_entry():
 			# finsih the command if it's ready
 			game_data_index += 1
 		return ready
+	elif is_instance_of(next_entry, TimePassFX):
+		# TODO: Sound effect...?
+		if next_entry.length <= timer:
+			game_data_index += 1
+			timer = 0 # Reset timer on TIME_PASS
+			return true
+		# wait
+		return false
 	else:
 		print("warning: unknown command encountered in command list")
 		game_data_index += 1
