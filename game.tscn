@@ -351,7 +351,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="ChaosMusic" type="AudioStreamPlayer" parent="."]
-volume_db = -16.0
+volume_db = -80.0
 bus = &"Music"
 
 [node name="BGSrc" type="ColorRect" parent="."]
