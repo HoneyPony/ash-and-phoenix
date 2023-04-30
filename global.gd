@@ -76,9 +76,11 @@ func TIME_PASS(time):
 
 # Stores the game data
 var game_data = [
+	WAIT(), # wait for entry button	
+	
 	CHANGE_ASH(),
-	WORD("dear", 0, -70),
-	WORD("phoenix", 0.4, 70),
+	WORD("dear", 1.5, -70),
+	WORD("phoenix", 1.9, 70),
 	
 	WAIT(),
 	WORD("do", 0, -140),
@@ -786,7 +788,6 @@ var chaos_rate = 0.8 # start slow, then speed up
 func _ready():
 	# Setup chaos.. easier to program this way
 	chaos_arr = Array(chaos_src.split(" "))
-	print(chaos_arr.size())
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
